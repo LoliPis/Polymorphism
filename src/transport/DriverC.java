@@ -1,6 +1,8 @@
-public class DriverD<T extends Bus> extends Driver {
+package transport;
 
-    public DriverD(String driverFio, String possesionDriversLicense, float experience, Bus driverCar) {
+public class DriverC <T extends FreightCar> extends Driver{
+
+    public DriverC(String driverFio, String possesionDriversLicense, float experience, FreightCar driverCar) {
         super(driverFio, possesionDriversLicense, experience, driverCar);
     }
 

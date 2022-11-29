@@ -1,7 +1,14 @@
+package transport;
+
+import transportEnum.BodyType;
+
 public class Car extends Transport implements Competing {
 
-    public Car(String brand, String model, float engineVolume) {
+    private BodyType bodyType;
+
+    public Car(String brand, String model, float engineVolume,  BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -14,6 +21,14 @@ public class Car extends Transport implements Competing {
         System.out.printf("%s %s заканчивает движение\n", getBrand(), getModel());
     }
 
+    @Override
+    public void printType() {
+        if (bodyType != null) {
+            System.out.println(bodyType.toString());
+        } else {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }
+    }
 
     @Override
     public void pitStop() {
@@ -31,7 +46,9 @@ public class Car extends Transport implements Competing {
         System.out.printf("Максимальная скорость %s %s - %.3f\n", getBrand(), getModel(), (100 + Math.random() * 200));
     }
 
-    public String toStringDrandAndModel(){
-        return getBrand() + "  "  +getModel();
+    @Override
+    public String toString() {
+        return getBrand() + "  "  +getModel() + ".";
     }
+
 }

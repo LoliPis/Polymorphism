@@ -1,6 +1,8 @@
-public class DriverC <T extends FreightCar> extends Driver{
+package transport;
 
-    public DriverC(String driverFio, String possesionDriversLicense, float experience, FreightCar driverCar) {
+public class DriverB<T extends Car> extends Driver{
+
+    public DriverB(String driverFio, String possesionDriversLicense, float experience, Car driverCar) {
         super(driverFio, possesionDriversLicense, experience, driverCar);
     }
 
@@ -21,6 +23,7 @@ public class DriverC <T extends FreightCar> extends Driver{
         System.out.println("Водитель заправился");
         System.out.println("Водитель оплатил заправку");
     }
+
 
     @Override
     public String toString() {
