@@ -6,6 +6,10 @@ public class DriverD<T extends Bus> extends Driver {
         super(driverFio, possesionDriversLicense, experience, driverCar);
     }
 
+    public DriverD(String driverFio, float experience, Transport driverCar) {
+        super(driverFio, experience, driverCar);
+    }
+
     @Override
     public void startCarMoving() {
         System.out.println("Водитель нажал на газ");
@@ -22,6 +26,11 @@ public class DriverD<T extends Bus> extends Driver {
     public void refuelCar() {
         System.out.println("Водитель заправился");
         System.out.println("Водитель оплатил заправку");
+    }
+
+    @Override
+    public boolean checkDriverLicence() {
+       return false;
     }
 
     @Override

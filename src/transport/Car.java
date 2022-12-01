@@ -1,6 +1,7 @@
 package transport;
 
 import transportEnum.BodyType;
+import transportExceptions.TastedResult;
 
 public class Car extends Transport implements Competing {
 
@@ -27,6 +28,15 @@ public class Car extends Transport implements Competing {
             System.out.println(bodyType.toString());
         } else {
             System.out.println("Данных по транспортному средству недостаточно");
+        }
+    }
+
+    @Override
+    public void beTasted(Driver driver) throws TastedResult {
+        if (!driver.checkDriverLicence()) {
+            throw new TastedResult("Необходимо указать тип прав!");
+        } else {
+            System.out.println("Все ОК!");
         }
     }
 

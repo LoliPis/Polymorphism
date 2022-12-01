@@ -1,6 +1,7 @@
 package transport;
 
 import transportEnum.CapacityType;
+import transportExceptions.TastedResult;
 
 public class Bus extends Transport implements Competing{
 
@@ -28,6 +29,11 @@ public class Bus extends Transport implements Competing{
         } else {
             System.out.println("Данных по транспортному средству недостаточно");
         }
+    }
+
+    @Override
+    public void beTasted(Driver driver) throws TastedResult {
+        System.out.println("Автобус " + this.toString() + " в диагностике не требуется");
     }
 
 

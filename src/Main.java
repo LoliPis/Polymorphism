@@ -1,7 +1,10 @@
 import transportEnum.*;
 import transport.*;
+import transportExceptions.TastedResult;
+
 
 public class Main {
+
     public static void main(String[] args) {
         Car zhiguli = new Car("Лада", "Жигули", 1.6f, BodyType.SENAD);
         Car hyundai = new Car("Hyundai","Solaris",1.6f, BodyType.SENAD);
@@ -48,6 +51,28 @@ public class Main {
         paz.printType();
         mersedesBus.printType();
         volkswagen.printType();
+
+        DriverB<Car> dimon2 = new DriverB<>("Корнилов Дмитрий Алексеевич", "есть",
+                3f, zhiguli);
+        try {
+            zhiguli.beTasted(dimon2);
+        } catch (TastedResult e) {
+            throw new RuntimeException(e);
+        }
+        DriverD<Bus> kiruha2 = new DriverD<>("Родионов Кирилл Михайлович",
+                7f, mersedesBus);
+        try {
+            mersedesBus.beTasted(kiruha2);
+        } catch (TastedResult e) {
+            throw new RuntimeException(e);
+        }
+        DriverC<FreightCar> olezha2 = new DriverC<>("Леменцев Олег Иванович",
+                10f, kamaz);
+        try {
+            nissan.beTasted(olezha2);
+        } catch (TastedResult e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

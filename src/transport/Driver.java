@@ -15,11 +15,19 @@ public abstract class Driver {
         this.driverCar = driverCar;
     }
 
+    public Driver(String driverFio, float experience, Transport driverCar) {
+        this.driverFio = driverFio;
+        this.experience = experience;
+        this.driverCar = driverCar;
+    }
+
     public abstract void startCarMoving();
 
     public abstract void stopCarMoving();
 
     public abstract void refuelCar();
+
+    public abstract boolean checkDriverLicence();
 
     public String getDriverFio() {
         return driverFio;

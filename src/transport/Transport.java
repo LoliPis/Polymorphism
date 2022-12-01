@@ -1,5 +1,7 @@
 package transport;
 
+import transportExceptions.TastedResult;
+
 public abstract class Transport {
     private String brand;
     private String model;
@@ -28,6 +30,8 @@ public abstract class Transport {
 
     public abstract void printType();
 
+    public abstract void beTasted(Driver driver) throws TastedResult;
+
     public String getBrand() {
         return brand;
     }
@@ -48,4 +52,8 @@ public abstract class Transport {
         }
     }
 
+    @Override
+    public String toString() {
+        return brand + " " + model;
+    }
 }

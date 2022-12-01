@@ -1,6 +1,7 @@
 package transport;
 
 import transportEnum.LoadCapacity;
+import transportExceptions.TastedResult;
 
 
 public class FreightCar extends Transport implements Competing{
@@ -28,6 +29,15 @@ public class FreightCar extends Transport implements Competing{
             System.out.println(loadCapacity.toString());
         } else {
             System.out.println("Данных по транспортному средству недостаточно");
+        }
+    }
+
+    @Override
+    public void beTasted(Driver driver) throws TastedResult {
+        if (driver.checkDriverLicence() == false){
+            throw new TastedResult("Необходимо указать тип прав!");
+        } else {
+            System.out.println("Все ОК!");
         }
     }
 
