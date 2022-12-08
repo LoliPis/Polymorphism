@@ -3,6 +3,9 @@ package transport;
 import transportEnum.CapacityType;
 import transportExceptions.TastedResult;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 public class Bus extends Transport implements Competing{
 
     private CapacityType capacityType;
@@ -10,6 +13,12 @@ public class Bus extends Transport implements Competing{
     public Bus(String brand, String model, float engineVolume, CapacityType capacityType) {
         super(brand, model, engineVolume);
         this.capacityType = capacityType;
+        this.sponsors = new HashSet<>();
+        this.mechanicTeam = new HashSet<>(2);
+    }
+
+    public Bus(String brand, String model, float engineVolume) {
+        super(brand, model, engineVolume);
     }
 
     @Override
@@ -51,6 +60,22 @@ public class Bus extends Transport implements Competing{
     @Override
     public void maxSpeed() {
         System.out.printf("Максимальная скорость %s %s - %.3f\n", getBrand(), getModel(), (100 + Math.random() * 200));
+    }
+
+    public void add(Mechanic<Bus> mechanic, Bus bus){
+        for (int i = 0; i < mechanic.getTransports().size(); i++) {
+            if (mechanic.getTransports().contains(bus)) {
+                bus.getMechanicTeam().add(mechanic);
+            }
+        }
+    }
+
+    public void add(Sponsor sponsor, Bus bus){
+        for (int i = 0; i < sponsor.getSponsors().size(); i++) {
+            if (sponsor.getSponsors().contains(bus)) {
+                bus.getSponsors().add(sponsor);
+            }
+        }
     }
 
     @Override

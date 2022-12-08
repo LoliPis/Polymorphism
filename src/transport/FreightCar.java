@@ -3,6 +3,9 @@ package transport;
 import transportEnum.LoadCapacity;
 import transportExceptions.TastedResult;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 
 public class FreightCar extends Transport implements Competing{
 
@@ -11,6 +14,24 @@ public class FreightCar extends Transport implements Competing{
     public FreightCar(String brand, String model, float engineVolume, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume);
         this.loadCapacity = loadCapacity;
+        this.sponsors = new HashSet<>();
+        this.mechanicTeam = new HashSet<>(2);
+    }
+
+    public void add(Mechanic<FreightCar> mechanic, FreightCar freightCar){
+        for (int i = 0; i < mechanic.getTransports().size(); i++) {
+            if (mechanic.getTransports().contains(freightCar)) {
+                freightCar.getMechanicTeam().add(mechanic);
+            }
+        }
+    }
+
+    public void add(Sponsor sponsor, FreightCar freightCar){
+        for (int i = 0; i < sponsor.getSponsors().size(); i++) {
+            if (sponsor.getSponsors().contains(freightCar)) {
+                freightCar.getSponsors().add(sponsor);
+            }
+        }
     }
 
     @Override

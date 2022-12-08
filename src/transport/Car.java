@@ -2,6 +2,7 @@ package transport;
 
 import transportEnum.BodyType;
 import transportExceptions.TastedResult;
+import java.util.HashSet;
 
 public class Car extends Transport implements Competing {
 
@@ -10,7 +11,11 @@ public class Car extends Transport implements Competing {
     public Car(String brand, String model, float engineVolume,  BodyType bodyType) {
         super(brand, model, engineVolume);
         this.bodyType = bodyType;
+        this.sponsors = new HashSet<>();
+        this.mechanicTeam = new HashSet<>(2);
     }
+
+
 
     @Override
     public void startMoving() {
@@ -61,4 +66,19 @@ public class Car extends Transport implements Competing {
         return getBrand() + "  "  +getModel() + ".";
     }
 
+    public void add(Mechanic<Car> mechanic, Car car){
+        for (int i = 0; i < mechanic.getTransports().size(); i++) {
+            if (mechanic.getTransports().contains(car)) {
+                car.getMechanicTeam().add(mechanic);
+            }
+        }
+    }
+
+    public void add(Sponsor sponsor, Car car){
+        for (int i = 0; i < sponsor.getSponsors().size(); i++) {
+            if (sponsor.getSponsors().contains(car)) {
+                car.getSponsors().add(sponsor);
+            }
+        }
+    }
 }
