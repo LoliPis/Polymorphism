@@ -6,20 +6,20 @@ import java.util.Set;
 public class Sponsor {
     private String sponsorName;
     private float sponsorshipAmount;
-    private Set<Transport> sponsors;
+    private Set<Transport> sponsorsCars;
 
     public Sponsor(String sponsorName, float sponsorshipAmount) {
         this.sponsorName = sponsorName;
         this.sponsorshipAmount = sponsorshipAmount;
-        this.sponsors = new HashSet<>();
+        this.sponsorsCars = new HashSet<>();
     }
 
-    public Set<Transport> getSponsors() {
-        return sponsors;
+    public Set<Transport> getSponsorsCars() {
+        return sponsorsCars;
     }
 
-    public void setSponsors(Set<Transport> sponsors) {
-        this.sponsors = sponsors;
+    public void setSponsorsCars(Set<Transport> sponsorsCars) {
+        this.sponsorsCars = sponsorsCars;
     }
 
     @Override

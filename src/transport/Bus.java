@@ -3,7 +3,6 @@ package transport;
 import transportEnum.CapacityType;
 import transportExceptions.TastedResult;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Bus extends Transport implements Competing{
@@ -71,8 +70,8 @@ public class Bus extends Transport implements Competing{
     }
 
     public void add(Sponsor sponsor, Bus bus){
-        for (int i = 0; i < sponsor.getSponsors().size(); i++) {
-            if (sponsor.getSponsors().contains(bus)) {
+        for (int i = 0; i < sponsor.getSponsorsCars().size(); i++) {
+            if (sponsor.getSponsorsCars().contains(bus)) {
                 bus.getSponsors().add(sponsor);
             }
         }

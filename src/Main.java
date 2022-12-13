@@ -1,6 +1,5 @@
 import transportEnum.*;
 import transport.*;
-import transportExceptions.TastedResult;
 
 
 public class Main {
@@ -89,7 +88,7 @@ public class Main {
         System.out.println(zhiguli.mechanicTeamToString());
 
         Sponsor hyundaiCompany = new Sponsor("Hyundai Company", 2_000_000);
-        hyundaiCompany.getSponsors().add(hyundai);
+        hyundaiCompany.getSponsorsCars().add(hyundai);
         hyundai.add(hyundaiCompany, hyundai);
         System.out.println(hyundai.sponsorListToString());
 

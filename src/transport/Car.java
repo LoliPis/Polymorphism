@@ -75,8 +75,8 @@ public class Car extends Transport implements Competing {
     }
 
     public void add(Sponsor sponsor, Car car){
-        for (int i = 0; i < sponsor.getSponsors().size(); i++) {
-            if (sponsor.getSponsors().contains(car)) {
+        for (int i = 0; i < sponsor.getSponsorsCars().size(); i++) {
+            if (sponsor.getSponsorsCars().contains(car)) {
                 car.getSponsors().add(sponsor);
             }
         }

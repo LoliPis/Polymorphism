@@ -3,7 +3,6 @@ package transport;
 import transportEnum.LoadCapacity;
 import transportExceptions.TastedResult;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 
@@ -27,8 +26,8 @@ public class FreightCar extends Transport implements Competing{
     }
 
     public void add(Sponsor sponsor, FreightCar freightCar){
-        for (int i = 0; i < sponsor.getSponsors().size(); i++) {
-            if (sponsor.getSponsors().contains(freightCar)) {
+        for (int i = 0; i < sponsor.getSponsorsCars().size(); i++) {
+            if (sponsor.getSponsorsCars().contains(freightCar)) {
                 freightCar.getSponsors().add(sponsor);
             }
         }
